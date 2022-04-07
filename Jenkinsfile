@@ -3,18 +3,15 @@ node {
     // Ensure the desired Go version is installed
     def root = "/usr/local/go/bin/go"
 
-    
         stage 'Checkout'
         git url: 'https://github.com/zahrul100/sample-go-jenkins.git'
         
         stage 'preTest'
-        sh '${root} version'
+        sh "${root} version"
         
         stage 'Test'
-        sh '${root} test ./... -cover'
+        sh "${root} test ./... -cover"
         
         stage 'Build'
-        sh '${root} build ./...'
-            
-    
+        sh "${root} build ./..."            
 }
